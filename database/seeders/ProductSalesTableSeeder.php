@@ -17,15 +17,15 @@ class ProductSalesTableSeeder extends Seeder
     {
         $productSales = [
             [
-                'description' => 'Product A',
-                'price' => 10.99,
+                'description' => 'Roupa 1',
+                'price' => 135.99,
                 'employee_id' => 1,
                 'payment_method_id' => 2,
                 'status' => 1,
             ],
             [
-                'description' => 'Product B',
-                'price' => 20.99,
+                'description' => 'Acessorio 2',
+                'price' => 200.99,
                 'employee_id' => 2,
                 'payment_method_id' => 3,
                 'status' => 1,

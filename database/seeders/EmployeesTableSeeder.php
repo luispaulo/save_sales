@@ -13,14 +13,14 @@ class EmployeesTableSeeder extends Seeder
         $employees = [
             [
                 'name' => 'Luis Paulo',
-                'cpf' => '012.734.761-58',
-                'birth_date' => '1986-07-13',
+                'cpf' => '012.774.761-55',
+                'birth_date' => '1986-07-17',
                 'commission' => 10,
             ],
             [
                 'name' => 'Bianca',
-                'cpf' => '035.395.261-37',
-                'birth_date' => '1988-06-26',
+                'cpf' => '096.352.237-31',
+                'birth_date' => '1988-05-26',
                 'commission' => 15,
             ],
             [
