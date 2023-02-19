@@ -59,7 +59,7 @@ https://github.com/luispaulo/save_sales.git
 
     json:    {
         "description": "Product E",
-        "price": "100.00",
+        "price": "150.00",
         "employee_id": 3,
         "payment_method_id": 4
     }
