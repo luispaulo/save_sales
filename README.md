@@ -1,32 +1,57 @@
 
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://www.eureciclo.com.br/img/selo-horizontal.ea6b8657.png" width="400"></a></p>
+</p>
 
-## API FOR SALES REGISTRATION
+## Project Description
+API FOR SALES REGISTRATION
 
-Download the project from Github
+## How to start the project
+- Clone the project on github
+https://github.com/luispaulo/save_sales.git
 
+## Check mysql settings in .env file, use your mysql password
 
-## Mysql database settings
+```DB_CONNECTION=mysql
+    DB_HOST=mysql
+    DB_PORT=3306
+    DB_DATABASE=save_sales
+    DB_USERNAME=root
+    DB_PASSWORD=
+```
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=save_sales
-DB_USERNAME=root
-DB_PASSWORD=
+## Install composer
+```
+    composer install
+```
 
-## Run
+## Now you can upload the container
+```
+   php artisan serve
+```
 
-php artisan migrate
+## Run mysql in terminal
+```
+   mysql -u root -p 
+```
+## Create database in mysql
+```
+   CREATE DATABASE save_sales;
+```
+
+## Load the migrates to the database
+```
+   php artisan migrate
+```
 
 ## Populate the database with the SEED run in SEQUENCE
+```
+    php artisan db:seed --class=PaymentMethodsTableSeeder
 
-php artisan db:seed --class=PaymentMethodsTableSeeder
+    php artisan db:seed --class=EmployeesTableSeeder   
 
-php artisan db:seed --class=EmployeesTableSeeder   
+    php artisan db:seed --class=ProductSalesTableSeeder 
+```
 
-php artisan db:seed --class=ProductSalesTableSeeder 
 
-
-## Contributing
-
-Thank you for considering contributing to the we project
+## QUESTIONS AND CONTACTS
+- **[Whatsapp - Luis Paulo ](https://api.whatsapp.com/send?phone=5561982481004)**
