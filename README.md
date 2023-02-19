@@ -52,6 +52,22 @@ https://github.com/luispaulo/save_sales.git
     php artisan db:seed --class=ProductSalesTableSeeder 
 ```
 
+## ENDPOINTS THE PROJECT
+```
+    GET: http://localhost:8000/api/list_sales/
+
+    GET: http://localhost:8000/api/list_sales/3
+
+    POST: http://localhost:8000/api/save_sales/
+
+    json:    {
+        "description": "Product E",
+        "price": "100.00",
+        "employee_id": 3,
+        "payment_method_id": 4
+    }
+```
+
 
 ## QUESTIONS AND CONTACTS
 - **[Whatsapp - Luis Paulo ](https://api.whatsapp.com/send?phone=5561982481004)**
