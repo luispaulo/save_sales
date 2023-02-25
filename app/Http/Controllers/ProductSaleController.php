@@ -9,7 +9,7 @@ class ProductSaleController extends Controller
 {
     public function index()
     {
-        $productSales = ProductSale::with('employee','paymentMethod')->get();
+        $productSales = ProductSale::with('user','paymentMethod')->get();
 
         return response()->json($productSales);
     }
@@ -19,7 +19,7 @@ class ProductSaleController extends Controller
         $productSale = new ProductSale();
         $productSale->description = $request->input('description');
         $productSale->price = $request->input('price');
-        $productSale->employee_id = $request->input('employee_id');
+        $productSale->user_id = $request->input('user_id');
         $productSale->payment_method_id = $request->input('payment_method_id'); 
         $productSale->status = $request->input('status'); 
         $productSale->save();
@@ -27,11 +27,11 @@ class ProductSaleController extends Controller
         return response()->json($productSale, 201);
     }
 
-    public function findByEmployeeId($employeeId)
+    public function findByUserId($user_id)
     {
-        $productSales = ProductSale::where('id', $employeeId)->first();
+        $productSales = ProductSale::where('user_id', $user_id)->first();
         $productSales->paymentMethod;
-        $productSales->employee;
+        $productSales->user;
         
         return response()->json($productSales);
     }
