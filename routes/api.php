@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductSaleController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,10 +15,16 @@ use App\Http\Controllers\ProductSaleController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::get('/list_sales', [ProductSaleController::class, 'index']);
+    Route::post('/save_sales', [ProductSaleController::class, 'store']);
+    Route::get('/list_sales/{employeeId}', [ProductSaleController::class, 'findByEmployeeId']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
-Route::get('/list_sales', [ProductSaleController::class, 'index']);
-Route::post('/save_sales', [ProductSaleController::class, 'store']);
-Route::get('/list_sales/{employeeId}', [ProductSaleController::class, 'findByEmployeeId']);
+
