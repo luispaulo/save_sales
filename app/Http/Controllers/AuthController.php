@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use validate;
+use App\Models\Employee;
+
 
 class AuthController extends Controller
 {
@@ -13,16 +16,27 @@ class AuthController extends Controller
     */
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|user|unique:users, email',
-            'password' => 'required|string|confirmed'
-         ]);
+        // TODO: VERIFICAR VALIDACAO DE CAMPOS
+        // $request->validate([
+        //     'name' => 'required|string',
+        //     'email' => 'required|string|user|unique:users, email',
+        //     'password' => 'required|string|confirmed',
+        //     'cpf' => 'required|string',
+        //     'company_id' => 'required|string',
+        //     'birth_date' => 'required|date',
+        //     'commission' => 'required|string',
+        //  ]);
+
+        //  dd($request);
 
          $user =  User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            "cpf" => $request->cpf,
+            "company_id" => $request->company_id,
+            "birth_date" => $request->birth_date,
+            "commission" => $request->commission,
          ]);
 
          $token = $user->createToken('primeiroToken')->plainTextToken;

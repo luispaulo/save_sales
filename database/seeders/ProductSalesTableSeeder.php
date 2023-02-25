@@ -19,14 +19,14 @@ class ProductSalesTableSeeder extends Seeder
             [
                 'description' => 'Roupa 1',
                 'price' => 135.99,
-                'employee_id' => 1,
+                'user_id' => 1,
                 'payment_method_id' => 2,
                 'status' => 1,
             ],
             [
                 'description' => 'Acessorio 2',
                 'price' => 200.99,
-                'employee_id' => 2,
+                'user_id' => 2,
                 'payment_method_id' => 3,
                 'status' => 1,
             ],

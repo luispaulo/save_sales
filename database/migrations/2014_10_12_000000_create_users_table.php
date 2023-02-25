@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('cpf')->unique();
+            $table->string('company_id');
+            $table->date('birth_date');
             $table->timestamp('email_verified_at')->nullable();
+            $table->decimal('commission', 5, 2)->default(0);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

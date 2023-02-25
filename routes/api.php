@@ -23,7 +23,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/list_sales', [ProductSaleController::class, 'index']);
     Route::post('/save_sales', [ProductSaleController::class, 'store']);
-    Route::get('/list_sales/{employeeId}', [ProductSaleController::class, 'findByEmployeeId']);
+    Route::get('/list_sales/{userId}', [ProductSaleController::class, 'findByUserId']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
