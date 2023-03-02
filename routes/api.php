@@ -20,6 +20,7 @@ use App\Http\Controllers\AuthController;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/company/{company_id}/users', [CompanyController::class, 'findUserByCompany']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -31,7 +32,6 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/company', [CompanyController::class, 'index']);
     Route::post('/company', [CompanyController::class, 'store']);
     Route::get('/company/{company_id}', [CompanyController::class, 'findCompanyById']);
-    Route::get('/company/{company_id}/users', [CompanyController::class, 'findUserByCompany']);
 
 });
 

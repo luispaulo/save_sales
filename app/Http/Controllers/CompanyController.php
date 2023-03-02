@@ -42,8 +42,12 @@ class CompanyController extends Controller
     public function findUserByCompany($company_id)
     {
         $company = Company::where('id', $company_id)->first();
-        $company->user;
 
-        return response()->json($company);
+        return [
+            'company' => [$company],
+            'links' => [
+                'self' => 'link-value',
+            ],
+        ];
     }
 }
