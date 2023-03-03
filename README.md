@@ -68,6 +68,9 @@ https://github.com/luispaulo/save_sales.git
 ## Open Documentation Swagger
 http://localhost:8000/api/documentation#/
 
+### Update file .yaml
+/storage/api-docs/api-docs.yam
+
 
 ## QUESTIONS AND CONTACTS
 - **[Whatsapp - Luis Paulo ](https://api.whatsapp.com/send?phone=5561982481004)**
