@@ -1,0 +1,313 @@
+openapi: 3.0.0
+info:
+  title: sales
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://example.com/api
+  variables: {}
+paths:
+  /register:
+    post:
+      tags:
+      - Misc
+      summary: Cadastrar Usuario
+      operationId: CadastrarUsuario
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CadastrarUsuarioRequest'
+              - example:
+                  name: Luis Henrique
+                  email: luis.henrique@example.com
+                  cpf: '01273482124'
+                  company_id: 2
+                  birth_date: 1986-01-01
+                  commission: 20
+                  password: password
+            example:
+              name: Luis Henrique
+              email: luis.henrique@example.com
+              cpf: '01273482124'
+              company_id: 2
+              birth_date: 1986-01-01
+              commission: 20
+              password: password
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /:
+    get:
+      tags:
+      - Misc
+      summary: Listar Vendas
+      operationId: ListarVendas
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /list_sales/2:
+    get:
+      tags:
+      - Misc
+      summary: Listar Venda por usuario
+      operationId: ListarVendaporusuario
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /login:
+    post:
+      tags:
+      - Misc
+      summary: Login
+      operationId: Login
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/LoginRequest'
+              - example:
+                  email: luis.nascimento@example.com
+                  password: password
+            example:
+              email: luis.nascimento@example.com
+              password: password
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /logout:
+    post:
+      tags:
+      - Misc
+      summary: Logout
+      operationId: Logout
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /company:
+    post:
+      tags:
+      - Misc
+      summary: Salvar Empresa
+      operationId: SalvarEmpresa
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/SalvarEmpresaRequest'
+              - example:
+                  name: Legabi
+                  email: legabi@legabi.com
+                  cpf: '03265236521'
+                  cnpj: '125365000122'
+                  status: 1
+                  start_date: 2023-02-26
+                  end_date: null
+                  theme_color: FFFFFF
+                  contact: '5561982481004'
+            example:
+              name: Legabi
+              email: legabi@legabi.com
+              cpf: '03265236521'
+              cnpj: '125365000122'
+              status: 1
+              start_date: 2023-02-26
+              end_date: null
+              theme_color: FFFFFF
+              contact: '5561982481004'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /company/1/users:
+    get:
+      tags:
+      - Misc
+      summary: Listar Empresa por Usuario
+      operationId: ListarEmpresaporUsuario
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    CadastrarUsuarioRequest:
+      title: CadastrarUsuarioRequest
+      required:
+      - name
+      - email
+      - cpf
+      - company_id
+      - birth_date
+      - commission
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        cpf:
+          type: string
+        company_id:
+          type: integer
+          format: int32
+        birth_date:
+          type: string
+        commission:
+          type: integer
+          format: int32
+        password:
+          type: string
+      example:
+        name: Luis Henrique
+        email: luis.henrique@example.com
+        cpf: '01273482124'
+        company_id: 2
+        birth_date: 1986-01-01
+        commission: 20
+        password: password
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: luis.nascimento@example.com
+        password: password
+    SalvarEmpresaRequest:
+      title: SalvarEmpresaRequest
+      required:
+      - name
+      - email
+      - cpf
+      - cnpj
+      - status
+      - start_date
+      - end_date
+      - theme_color
+      - contact
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        cpf:
+          type: string
+        cnpj:
+          type: string
+        status:
+          type: integer
+          format: int32
+        start_date:
+          type: string
+        end_date:
+          type: string
+          nullable: true
+        theme_color:
+          type: string
+        contact:
+          type: string
+      example:
+        name: Legabi
+        email: legabi@legabi.com
+        cpf: '03265236521'
+        cnpj: '125365000122'
+        status: 1
+        start_date: 2023-02-26
+        end_date: null
+        theme_color: FFFFFF
+        contact: '5561982481004'
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: Misc
+  description: ''
